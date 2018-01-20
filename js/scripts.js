@@ -1,42 +1,37 @@
 $("document").ready(function(){
-  $("form1").submit(function(event){
+  $("#form1").submit(function(event){
     event.preventDefault();
 
-    var num = $("#userInput").val();
+    //var num = parseInt($("#input").val());
 
     function convertToRoman(num){
       var romanToNum = {
         M:1000,
-        CM:900,
         D:500,
-        CD:400,
         C:100,
-        XC:90,
         L:50,
-        XL:40,
         X:10,
-        IX:9,
         V:5,
-        IV:4,
         I:1
-      }; //end key val w semi colon
+    }; //end key val w semi colon
 
-      var roman = ""; //empty string to recieve rom nums
+    var roman = ""; //empty string to recieve rom nums
 
-        for(var key in romanToNum){
-          while(num >= romanToNum[key]){
-            roman += key;
-            num -= romanToNum[key];
-          }
-        }
+    for(var key in romanToNum){
+      while(num >= romanToNum[key]){
+        roman += key;
+        num -= romanToNum[key];
+      }
+    }
 
     return roman;
+    console.log(roman);
 
-    };
+    }; //end convertToRoman
 
-    console.log(convertToRoman(num));
+    convertToRoman(num);
 
-  });
-});
+  }); //end submit handler
+}); //end doc ready handler
 
-//when looping through onject use "for var in" loop
+//when looping through object use "for var in" loop
